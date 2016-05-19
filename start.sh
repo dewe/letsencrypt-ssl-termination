@@ -1,3 +1,6 @@
+# removing olf config
+rm -rf ./nginx.conf
+
 # generate the top of the config
 sed "s/<TARGET>/$TARGET/" ./templates/nginx_top.tmpl >> ./nginx.conf
 
