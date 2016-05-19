@@ -1,0 +1,17 @@
+user nobody nogroup;
+worker_processes  2;
+
+events {
+  worker_connections 256;
+}
+
+http {
+  upstream loadbalancer {
+    server <TARGET>;
+  }
+
+  # https://gist.github.com/plentz/6737338
+  server_tokens off;
+  add_header X-Frame-Options SAMEORIGIN;
+  add_header X-Content-Type-Options nosniff;
+  add_header X-XSS-Protection "1; mode=block";
