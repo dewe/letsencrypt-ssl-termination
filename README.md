@@ -3,7 +3,11 @@ Lets encrypt ssl termination will generate certificates for given domain names a
 
 ```bash
 
-sudo docker run --restart=always -p 80:80 -p 443:443 -v /mnt/dat1/letsencrypt:/etc/letsencrypt --link <target>:loadbalancer --name letsencrypt-ssl -e EMAIL="<EMAIL>" -e DOMAINS="<domain_separated_by_space>" -d mckn/letsencrypt-ssl-termination
+sudo docker run --restart=always -p 80:80 -p 443:443
+-v /mnt/dat1/letsencrypt:/etc/letsencrypt --name letsencrypt-ssl
+-e EMAIL="<email>" -e DOMAINS="<domain_separated_by_space>"
+-e TARGET="<ip_to_target_lb>"
+-d mckn/letsencrypt-ssl-termination
 
 ```
 

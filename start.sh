@@ -10,9 +10,9 @@ for DOMAIN in $DOMAINS
 do
     sed "s/<DOMAIN>/$DOMAIN/" ./templates/server_443.tmpl >> ./nginx.conf
     # generating SSL certs if missing for domain
-    #if [ ! -d /etc/letsencrypt/live/$DOMAIN ]; then
-    #  letsencrypt certonly --noninteractive --agree-tos --email $EMAIL --standalone -d $DOMAIN
-    #fi
+    if [ ! -d /etc/letsencrypt/live/$DOMAIN ]; then
+      letsencrypt certonly --noninteractive --agree-tos --email $EMAIL --standalone -d $DOMAIN
+    fi
 done
 
 # generating a conf for the port 80 server block
