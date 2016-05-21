@@ -25,4 +25,4 @@ echo "### generated config ###"
 cat ./nginx.conf
 
 cp ./nginx.conf /etc/nginx/nginx.conf
-nginx -g "daemon off; error_log /dev/stderr notice;"
+nginx -g "daemon off; access_log off;"
